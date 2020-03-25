@@ -10,7 +10,6 @@ import java.util.*;
 制約
 1≤N≤100
 N は整数である。
-
 */
 
 public class Main {
