@@ -1,0 +1,24 @@
+import java.util.*;
+
+/*
+問題文
+整数 r が与えられます。
+
+半径 r の円の面積が半径 1 の円の面積の何倍になるかを求めてください。
+なお答えは制約の下では必ず整数になることが示せます。
+
+制約
+1≤r≤100
+入力中のすべての値は整数である。
+
+*/
+
+public class Main {
+    public static void main(String[] args){
+
+        Scanner s = new Scanner(System.in);
+        int r = s.nextInt();
+
+        System.out.println(r*r);
+    }
+}
