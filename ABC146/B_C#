@@ -1,0 +1,55 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+/*
+問題文
+英大文字のみからなる文字列 S があります。
+また、整数 N が与えられます。
+
+S の各文字を、アルファベット順で N 個後の文字に置き換えた文字列を出力してください。
+
+ただしアルファベット順で Z の 1 個後の文字は A とみなします。
+
+制約
+0≤N≤26
+1≤|S|≤10^4
+S は英大文字のみからなる
+
+*/
+
+namespace LearningAtCoder
+{
+    class ABC146B
+    {
+        static void Main(string[] args)
+        {
+            int n = int.Parse(Console.ReadLine());
+            String s = Console.ReadLine();
+
+            // C#こんなことできるのね
+            List<char> items = new List<char>("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+
+            var inputS = s.ToCharArray();
+            String output = "";
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                int place = items.IndexOf(inputS[i]);
+
+                if (place + n <= 25)
+                {
+                    output += items[place + n];
+                }
+                else
+                {
+                    output += items[place + n - 26];
+                }
+            }
+            Console.WriteLine(output);
+        }
+    }
+}
