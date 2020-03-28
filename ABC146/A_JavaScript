@@ -1,0 +1,30 @@
+/*
+問題文
+今日の曜日を表す文字列 S が与えられます。
+S は SUN,MON,TUE,WED,THU,FRI,SAT のいずれかであり、
+それぞれ日曜日、月曜日、火曜日、水曜日、木曜日、金曜日、土曜日を表します。
+
+次の日曜日 (あす以降) が何日後か求めてください。
+
+制約
+S は SUN,MON,TUE,WED,THU,FRI,SAT のいずれか
+
+*/
+
+function Main(input) {
+    var S = input.split('\n')
+    
+    var map = {
+        "SUN":7,
+        "MON":6,
+        "TUE":5,
+        "WED":4,
+        "THU":3,
+        "FRI":2,
+        "SAT":1,
+    }
+	console.log(map[S[0]]);
+}
+ 
+//*編集不可。標準入出力から一度に読み込み、Mainを呼び出す
+Main(require("fs").readFileSync("/dev/stdin", "utf8"));
