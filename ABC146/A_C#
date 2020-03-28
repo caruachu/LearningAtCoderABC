@@ -1,0 +1,27 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace LearningAtCoder
+{
+    class ABC146
+    {
+        static void Main(string[] args)
+        {
+            String input = Console.ReadLine();
+            // 汚いコード書きやがって
+            Dictionary<string, int> days = new Dictionary<string, int>();
+            days.Add("SUN", 7);
+            days.Add("MON", 6);
+            days.Add("TUE", 5);
+            days.Add("WED", 4);
+            days.Add("THU", 3);
+            days.Add("FRI", 2);
+            days.Add("SAT", 1);
+
+            Console.WriteLine(days[input]);
+        }
+    }
+}
