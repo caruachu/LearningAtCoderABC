@@ -1,0 +1,34 @@
+import java.util.*;
+
+/*
+問題文
+今日の曜日を表す文字列 S が与えられます。
+S は SUN,MON,TUE,WED,THU,FRI,SAT のいずれかであり、
+それぞれ日曜日、月曜日、火曜日、水曜日、木曜日、金曜日、土曜日を表します。
+
+次の日曜日 (あす以降) が何日後か求めてください。
+
+制約
+S は SUN,MON,TUE,WED,THU,FRI,SAT のいずれか
+
+*/
+
+public class Main {
+    public static void main(String[] args){
+
+        // Mapの格好いい初期値の設定の仕方is何
+        HashMap<String, Integer> map = new HashMap<String, Integer>();
+        map.put("SUN", 7);
+        map.put("MON", 6);
+        map.put("TUE", 5);
+        map.put("WED", 4);
+        map.put("THU", 3);
+        map.put("FRI", 2);
+        map.put("SAT", 1);
+
+        Scanner sc = new Scanner(System.in);
+        String s = sc.next();
+
+        System.out.println(map.get(s));
+    }
+}
