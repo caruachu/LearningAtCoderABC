@@ -1,0 +1,31 @@
+import java.util.*;
+
+/*
+問題文
+ある長さ 6 の英小文字からなる文字列がcoffeeに似ているとは、
+3 文字目と 4 文字目が等しく、5 文字目と 6 文字目も等しいことを言います。
+与えられる文字列 S がcoffeeに似ているか判定してください。
+
+制約
+S は長さ 6 の英小文字からなる文字列である。
+*/
+
+public class Main {
+    public static void main(String[] args){
+
+        Scanner sc = new Scanner(System.in);
+        String s = sc.next();
+
+        String temp[] = new String[s.length()];
+        String Flg = "No";
+        for (int i = 0; i < s.length(); i++) {
+            temp[i] = String.valueOf(s.charAt(i));
+        }
+
+        // 配列のインデックスを利用して、文字列を変換
+        if (temp[2].equals(temp[3]) && temp[4].equals(temp[5])) {
+            Flg = "Yes";
+        }
+        System.out.println(Flg);
+    }
+}
