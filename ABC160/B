@@ -1,0 +1,30 @@
+import java.util.*;
+
+/*
+問題文
+高橋君は金色の硬貨が好きです。
+自分が持っている 500 円硬貨 1 枚につき 1000、5 円硬貨 1 枚につき 5 の 嬉しさ を得ます。
+
+高橋君はX 円を持っています。
+これを高橋君の嬉しさが最大になるように両替したとき、高橋君の嬉しさはいくらになりますか？
+
+(なお、利用できる硬貨は500 円玉、100 円玉、50 円玉、10 円玉、5 円玉、1 円玉の 6 種類とします。)
+
+制約
+0≤X≤10^9
+X は整数
+*/
+
+public class Main {
+    public static void main(String[] args){
+
+        Scanner sc = new Scanner(System.in);
+        int s = sc.nextInt();
+
+        int ans = 0;
+        
+        ans += s / 500 * 1000;
+        ans += (s % 500)/ 5 * 5;
+        System.out.println(ans);
+    }
+}
