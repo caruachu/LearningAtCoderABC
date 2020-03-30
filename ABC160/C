@@ -1,0 +1,43 @@
+import java.util.*;
+
+/*
+問題文
+1 周 K メートルの円形の湖があり、その周りに N 軒の家があります。
+i 番目の家は、湖の北端から時計回りに Ai メートルの位置にあります。
+家の間の移動は、湖の周りに沿ってのみ行えます。
+
+いずれかの家から出発して N 軒すべての家を訪ねるための最短移動距離を求めてください。
+
+制約
+2≤K≤10^6
+2≤N≤2×10^5
+0≤A1<...<AN<K
+入力中のすべての値は整数である。
+
+*/
+
+public class Main {
+    public static void main(String[] args){
+
+        Scanner sc = new Scanner(System.in);
+        int k = sc.nextInt();
+        int n = sc.nextInt();
+        int a[] = new int[n];
+
+        for (int i = 0; i < n; i ++) {
+            a[i] = sc.nextInt();
+        }
+
+        // 1軒目からN軒目までの距離
+        int max = a[0] - a[n - 1] + k;
+
+        for (int i = 0; i < n-1; i ++) {
+            if (a[i+1]-a[i] > max) {
+                max = a[i+1]-a[i];
+            }
+        }
+
+        // 各家の間で、最大の長さを湖の周の長さから引く
+        System.out.println(k-max);
+    }
+}
