@@ -1,0 +1,81 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map.Entry;
+import java.util.Scanner;
+
+/*
+問題文
+AtCoder丘陵には N 個の展望台があり、展望台 i の標高は Hi です。
+また、異なる展望台どうしを結ぶ M 本の道があり、道 j は展望台 Aj と展望台 Bj を結んでいます。
+
+展望台 i が良い展望台であるとは、展望台 i から一本の道を使って辿り着けるどの展望台よりも展望台 i の方が
+標高が高いことをいいます。
+展望台 i から一本の道を使って辿り着ける展望台が存在しない場合も、展望台 i は良い展望台であるといいます。
+
+良い展望台がいくつあるか求めてください。
+
+制約
+2≤N≤10^5
+1≤M≤10^5
+1≤Hi≤10^9
+1≤Ai,Bi≤N
+Ai≠Bi
+同じ展望台の組を結ぶ道が複数あることもある。
+入力中の値はすべて整数である。
+*/
+
+public class Main{
+    public static void main(String[] args){
+
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        long[] hies = new long [n];
+
+        // 展望台の高さを格納
+        for (int i = 0; i < n; i++) {
+            hies[i] = sc.nextLong();
+        }
+
+        HashMap<Integer, ArrayList<Integer>> map =  new HashMap<>();
+
+        // 各展望台に対して、道が存在する展望台を配列で格納
+        for (int i = 0; i < n; i++) {
+            ArrayList<Integer> array = new ArrayList<>();
+            map.put(i+1, array);
+        }
+
+        int count = 0;
+
+        for (int i = 0; i < m; i++) {
+                int a = sc.nextInt();
+                int b = sc.nextInt();
+                map.get(a).add(b);
+                map.get(b).add(a);
+        }
+
+        for(Entry<Integer,ArrayList<Integer>> entry : map.entrySet()){
+            boolean flg = true;
+            ArrayList<Integer> values = entry.getValue();
+
+            // 道が存在しない場合カウント
+            if (values.size() == 0) {
+                count++;
+                continue;
+            }
+
+            // 展望台の高さを比較
+            for (int i = 0; i < values.size(); i++) {
+                if (hies[entry.getKey()-1] <= hies[values.get(i)-1]) {
+                    flg = false;
+                    break;
+                }
+            }
+
+            if (flg) {
+                count++;
+            }
+        }
+        System.out.println(count);
+    }
+}
